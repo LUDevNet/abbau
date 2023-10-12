@@ -109,7 +109,13 @@ impl<'a> ExprVM<'a> {
                         vl.append(&mut vr);
                         Expr::Path(l, vl)
                     }
-                    (Expr::BinOp { op, args }, else_case) if op == Op::TernaryTrue => {
+                    (
+                        Expr::BinOp {
+                            op: Op::TernaryTrue,
+                            args,
+                        },
+                        else_case,
+                    ) => {
                         let cond = args.0;
                         let then_case = args.1;
                         Expr::If(Box::new((cond, then_case, else_case)))
@@ -153,7 +159,7 @@ impl<'a> Iterator for ShuntingYard<'a> {
         loop {
             match self.inner.peek().copied() {
                 Some(Token::Ident(_) | Token::Number(_)) => break self.inner.next(),
-                Some(Token::BinOp(o1)) if o1 == Op::RParen => {
+                Some(Token::BinOp(Op::RParen)) => {
                     if self.op_stack.last() == Some(&Op::LParen) {
                         self.inner.next(); // discard right paren
                         self.op_stack.pop(); // discard left paren

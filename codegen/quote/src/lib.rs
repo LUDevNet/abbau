@@ -5,7 +5,7 @@ use std::{
     process::Command,
 };
 
-use abbau_types::KsySchema;
+pub use abbau_types::KsySchema;
 use ctx::NamingContext;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
