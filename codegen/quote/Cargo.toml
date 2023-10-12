@@ -1,0 +1,13 @@
+[package]
+name = "abbau-codegen-quote"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = "1.0.152"
+quote = "1.0.23"
+heck = "0.4.0"
+abbau-types = { path = "../../types" }
+abbau-expr = { path = "../../expr" }
+proc-macro2 = "1.0.49"
+unicode-ident = "1.0.11"

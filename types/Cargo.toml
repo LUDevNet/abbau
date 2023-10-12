@@ -1,0 +1,16 @@
+[package]
+name = "abbau-types"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/LUDevNet/abbau/tree/types"
+description = "Basic Types for Kaitai Struct Schemas"
+license = "MIT or Apache-2.0"
+readme = "README.md"
+keywords = ["kaitai", "ksy", "serde", "struct", "parsers"]
+categories = ["parsing"]
+
+[dependencies]
+serde = { version = "1.0.152", features = ["derive"] }
+
+[dev-dependencies]
+serde_yaml = "0.9.25"
